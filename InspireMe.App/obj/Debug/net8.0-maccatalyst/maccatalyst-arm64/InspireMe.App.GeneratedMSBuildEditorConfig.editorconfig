@@ -51,6 +51,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = InspireMe.App.Pages.HomePa
 build_metadata.AdditionalFiles.TargetPath = Pages/HomePage.xaml
 build_metadata.AdditionalFiles.RelativePath = Pages/HomePage.xaml
 
+[/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/Pages/QuotePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = InspireMe.App.Pages.QuotePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages/QuotePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages/QuotePage.xaml
+
 [/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = InspireMe.App.Resources.Styles.Colors.xaml

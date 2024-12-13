@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InspireMe.App.Pages.QuotePage"
+             Title="QuotePage">
+
+    <StackLayout BackgroundColor="#FF02282E">
+        <Label Padding="10,40,10,30"
+               Text="InspireMe"
+               TextColor="White"
+               FontSize="40"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               VerticalOptions="Start">
+            <Label.Shadow>
+                <Shadow Brush="#FF080A08"
+                        Offset="0,0"
+                        Radius="10"
+                        Opacity="1">
+                </Shadow>
+            </Label.Shadow>
+        </Label>
+        <Grid BackgroundColor="Transparent">
+            <Frame CornerRadius="15"
+                   HasShadow="True"
+                   Padding="5,20,5,20"
+                   Margin="0,10,0,0"
+                   WidthRequest="350"
+                   HeightRequest="500"
+                   BackgroundColor="Transparent"
+                   BorderColor="#005C6A"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center">
+                <Image Source="background_first.jpg"
+                       Aspect="Fill"
+                       WidthRequest="500"
+                       HeightRequest="800"
+                       IsVisible="Visible"
+                       Opacity="0.4"/>
+            </Frame>
+
+            <Grid Padding="20"
+                    RowDefinitions="*,Auto,Auto">
+                <Label Text="hello"
+                       Grid.Row="0"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                <Button
+                    Text="Set As Favourite"
+                    Grid.Row="2"
+                    TextColor="Black"
+                    VerticalOptions="End"
+                    WidthRequest="200"
+                    BackgroundColor="#E5E86C"/>
+            </Grid>
+
+        </Grid>
+    </StackLayout>
+</ContentPage>

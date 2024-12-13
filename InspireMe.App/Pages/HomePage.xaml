@@ -54,7 +54,8 @@
                          WidthRequest="150"
                          CornerRadius="10"
                          FontAttributes="Bold"
-                         FontSize="17">
+                         FontSize="17"
+                         Clicked="OnGeneratedClicked">
                     <Button.Shadow>
                     <Shadow Brush="#FF898D09"
                             Offset="0,0"
