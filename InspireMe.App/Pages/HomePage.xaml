@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InspireMe.App.Pages.HomePage"
+             Title="InspireMe"
+             NavigationPage.HasNavigationBar="False"
+             Shell.NavBarIsVisible="False"
+             >
+
+    <StackLayout BackgroundColor="#FF02282E">
+        <VerticalStackLayout>
+            <Label Padding="10,40,10,30"
+                   Text="InspireMe"
+                   TextColor="White"
+                   FontSize="40"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <Label.Shadow>
+                    <Shadow Brush="#FF080A08"
+                            Offset="0,0"
+                            Radius="10"
+                            Opacity="1">
+                    </Shadow>
+                </Label.Shadow>
+            </Label>
+            <Grid>
+                <Frame CornerRadius="15"
+                       HasShadow="True"
+                       Padding="5,20,5,20"
+                       Margin="0,10,0,0"
+                       BackgroundColor="#005C6A"
+                       BorderColor="#005C6A"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <StackLayout>
+                        <Label Text="Empowering minds with daily inspiration, wisdom, and positivity—one quote at a time. Our mission is to spark creativity, motivate action, and enrich lives by delivering powerful words that resonate and inspire."
+                               FontAttributes="Bold"
+                               TextColor="White"
+                               FontSize="14"
+                               HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+            </Grid>
+            <StackLayout>
+                <Image Source="background_home.png"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center"
+                       Aspect="AspectFit"
+                       HeightRequest="350"/>
+                <Button  BackgroundColor="#E5E86C"
+                         Text="Generate"
+                         TextColor="Black"
+                         WidthRequest="150"
+                         CornerRadius="10"
+                         FontAttributes="Bold"
+                         FontSize="17">
+                    <Button.Shadow>
+                    <Shadow Brush="#FF898D09"
+                            Offset="0,0"
+                            Radius="10"
+                            Opacity="1">
+                    </Shadow>
+                    </Button.Shadow>
+                </Button>
+            </StackLayout>
+
+        </VerticalStackLayout>
+
+    </StackLayout>
+</ContentPage>
