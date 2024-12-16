@@ -8,10 +8,11 @@
       },
       {
         "name": "Microsoft.MacCatalyst",
-        "version": "18.0.8314"
+        "version": "18.0.8316"
       }
     ],
     "configProperties": {
+      "MVVMTOOLKIT_ENABLE_INOTIFYPROPERTYCHANGING_SUPPORT": true,
       "Microsoft.Extensions.DependencyInjection.VerifyOpenGenericServiceTrimmability": true,
       "System.AggressiveAttributeTrimming": true,
       "System.ComponentModel.TypeConverter.EnableUnsafeBinaryFormatterInDesigntimeLicenseContextSerialization": false,

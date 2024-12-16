@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             x:Class="InspireMe.App.Pages.LoadingPage"
+             Title="LoadingPage"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <Grid RowDefinitions="auto,2*,*"
+            BackgroundColor="#02282E">
+        <Label Grid.Row="0"
+            VerticalOptions="Start"
+                Padding="10,40,10,30"
+               Text="InspireMe"
+               TextColor="White"
+               FontSize="40"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               >
+            <Label.Shadow>
+                <Shadow Brush="#FF080A08"
+                        Offset="0,0"
+                        Radius="10"
+                        Opacity="1">
+                </Shadow>
+            </Label.Shadow>
+        </Label>
+        <!-- Lottie Animation -->
+        <skia:SKLottieView Grid.Row="1"
+                           x:Name="LottieAnimation"
+                           Source="loading_animation.json"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           HeightRequest="200"
+                           WidthRequest="200"/>
+
+        <!-- Loading Text -->
+        <Label  Grid.Row="2"
+                Text="Generating Quote..."
+                FontSize="24"
+                TextColor="White"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,10,0,100"/>
+    </Grid>
+</ContentPage>

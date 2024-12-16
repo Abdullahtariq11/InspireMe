@@ -18,10 +18,23 @@ public class QuoteService:IQuoteService
         new QuoteModel { Text = "Your time is limited, don’t waste it living someone else’s life.", Author = "Steve Jobs" }
     };
 
+    private readonly List<QuoteModel> _favourites=new();
+
     public QuoteModel GetRandomQuote()
     {
         var random=new Random();
         return _quotes[random.Next(_quotes.Count)];
     }
+
+    public void AddToFavourite(QuoteModel quote)
+    {
+        if(!_favourites.Contains(quote))
+        {
+            _favourites.Add(quote);
+        }
+    }
+
+    public List<QuoteModel> GetFavourites()=> _favourites;
+
 
 }

@@ -50,9 +50,14 @@
 /Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/Microsoft.Maui.dll
 /Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/Microsoft.Maui.Essentials.dll
 /Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/Microsoft.Maui.Graphics.dll
-/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/Microsoft.Maui.Controls.HotReload.Forms.dll
-/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
-/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/Microsoft.VisualStudio.DesignTools.TapContract.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/SkiaSharp.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/SkiaSharp.Extended.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/SkiaSharp.Extended.UI.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/SkiaSharp.SceneGraph.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/SkiaSharp.Skottie.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/SkiaSharp.Views.iOS.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/SkiaSharp.Views.Maui.Controls.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/SkiaSharp.Views.Maui.Core.dll
 /Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/InspireMe.App.dll
 /Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/Microsoft.CSharp.dll
 /Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/publish/../InspireMe.App.app/Microsoft.VisualBasic.Core.dll
