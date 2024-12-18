@@ -334,3 +334,6 @@
 /Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/obj/Debug/net8.0-ios/iossimulator-arm64/InspireMe.App.pdb
 /Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/obj/Debug/net8.0-ios/iossimulator-arm64/InspireMe.App.genruntimeconfig.cache
 /Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/obj/Debug/net8.0-ios/iossimulator-arm64/ref/InspireMe.App.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/Microsoft.Maui.Controls.HotReload.Forms.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
+/Users/abdullahtariq/Documents/GitHub/InspireMe/InspireMe.App/bin/Debug/net8.0-ios/iossimulator-arm64/Microsoft.VisualStudio.DesignTools.TapContract.dll

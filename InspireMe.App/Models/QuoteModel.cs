@@ -1,9 +1,15 @@
 using System;
+using System.Collections.ObjectModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace InspireMe.App.Models;
 
-public class QuoteModel
+public partial class QuoteModel : ObservableObject
 {
-    public string Text { get; set; }
-    public string Author { get; set; }
+    [ObservableProperty]
+    private string text;
+    [ObservableProperty]
+    public string author;
+    [ObservableProperty]
+    public bool favourite;
 }

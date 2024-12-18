@@ -7,13 +7,13 @@ public partial class HomePage : ContentPage
 {
 	private readonly IQuoteService _quoteService;
 	private readonly IBackgroundService _backgroundService;
-	public HomePage(HomePageViewModel viewModel, IQuoteService quoteService,IBackgroundService backgroundService)
+	public HomePage(HomePageViewModel viewModel, IQuoteService quoteService, IBackgroundService backgroundService)
 	{
 
 		InitializeComponent();
 		BindingContext = viewModel;
 		_quoteService = quoteService;
-		_backgroundService= backgroundService;
+		_backgroundService = backgroundService;
 	}
 
 	private async void OnGeneratedClicked(object sender, EventArgs e)
@@ -21,14 +21,11 @@ public partial class HomePage : ContentPage
 		await Navigation.PushAsync(new LoadingPage());
 		await Task.Delay(3000);
 		var randomQuote = _quoteService.GetRandomQuote();
-		var quotePage = new QuotePage()
+		var quotePageViewModel = new QuotePageViewModel(_quoteService, _backgroundService);
+		quotePageViewModel.InitializeQuote(randomQuote.Text, randomQuote.Author);
+		var quotePage = new QuotePage
 		{
-			BindingContext = new QuotePageViewModel(_quoteService, Navigation,_backgroundService)
-			{
-				QuoteAuthor = randomQuote.Author,
-				QuoteText = randomQuote.Text
-			}
-
+			BindingContext = quotePageViewModel
 		};
 		await Navigation.PushAsync(quotePage);
 		// Remove the LoadingPage from the navigation stack (optional)

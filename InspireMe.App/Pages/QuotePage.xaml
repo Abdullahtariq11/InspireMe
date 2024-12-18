@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="InspireMe.App.Pages.QuotePage"
-             Title="QuotePage">
+             Title="Quote">
 
     <StackLayout BackgroundColor="#FF02282E">
         <Label Padding="10,40,10,30"
@@ -40,25 +40,39 @@
             </Frame>
 
             <Grid Padding="20"
-                    RowDefinitions="*,Auto,Auto">
-                <Label Padding="20,0,0,0" Text="{Binding QuoteText}"
-                       Grid.Row="0"
-                       FontSize="20"
-                       MaximumWidthRequest="350"
-                       MaxLines="5"
-                       LineBreakMode="WordWrap"
-                       TextColor="White"
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
+                  RowDefinitions="*,Auto,Auto">
+                <StackLayout Padding="20,0,0,0"
+                             Grid.Row="0"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center">
+                    <Label Text="{Binding QuoteText}"
+                           FontSize="20"
+                           MaximumWidthRequest="350"
+                           MaxLines="5"
+                           LineBreakMode="WordWrap"
+                           TextColor="White"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                    <Label Margin="0,0,20,0"
+                           Text="{Binding QuoteAuthor}"
+                           FontSize="15"
+                           MaximumWidthRequest="350"
+                           MaxLines="5"
+                           TextColor="White"
+                           HorizontalTextAlignment="Start"
+                           HorizontalOptions="End"
+                           VerticalOptions="Center"/>
+                </StackLayout>
                 <Button
-                    Text="Set As Favourite"
+                    Text="{Binding FavouriteButtonText}"
                     Grid.Row="2"
                     TextColor="Black"
                     VerticalOptions="End"
                     WidthRequest="200"
-                    BackgroundColor="#E5E86C"
-                    Command="{Binding SetAsFavoriteCommand}"/>
+                    BackgroundColor="{Binding FavouriteButtonColor}"
+                    Command="{Binding SetAsFavoriteCommand}"
+                    IsEnabled="{Binding IsEnabled}"/>
             </Grid>
 
         </Grid>

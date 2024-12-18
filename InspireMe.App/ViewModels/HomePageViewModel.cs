@@ -7,7 +7,7 @@ using InspireMe.App.Service;
 
 namespace InspireMe.App.ViewModels;
 
-public partial class HomePageViewModel:ObservableObject
+public partial class HomePageViewModel : ObservableObject
 {
     private readonly IQuoteService _quoteService;
 
@@ -15,35 +15,28 @@ public partial class HomePageViewModel:ObservableObject
     private string _quoteText;
 
     [ObservableProperty]
-    public string _quoteAuthor;
+    private string _quoteAuthor;
 
-    public ObservableCollection<QuoteModel> Favourites { get;  }=new();
+    [ObservableProperty]
+    private bool favourite;
+
+
 
     //commands
-    public IRelayCommand GenerateQuoteCommand{get;}
-    public IRelayCommand SaveToFavouriteCommand{get;}
-
+    public IRelayCommand GenerateQuoteCommand { get; }
 
     public HomePageViewModel(IQuoteService quoteService)
     {
-        _quoteService= quoteService;
-        GenerateQuoteCommand=new RelayCommand(GenerateQuote);
-        SaveToFavouriteCommand=new RelayCommand(SaveToFavourite);
-
+        _quoteService = quoteService;
+        GenerateQuoteCommand = new RelayCommand(GenerateQuote);
     }
 
     public void GenerateQuote()
     {
-        var quote=_quoteService.GetRandomQuote();
-        QuoteText=quote.Text;
-        QuoteAuthor=quote.Author;
-    }
-
-    public void SaveToFavourite()
-    {
-        if(!string.IsNullOrWhiteSpace(QuoteText)&& !Favourites.Any(f=>f.Text==QuoteText)){
-            Favourites.Add(new QuoteModel{Text=QuoteText,Author=QuoteAuthor});
-        }
+        var quote = _quoteService.GetRandomQuote();
+        QuoteText = quote.Text;
+        QuoteAuthor = quote.Author;
+        Favourite = quote.Favourite;
     }
 
 }
