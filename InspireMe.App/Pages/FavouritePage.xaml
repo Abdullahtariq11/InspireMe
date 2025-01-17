@@ -6,9 +6,9 @@
 
     <StackLayout BackgroundColor="#FF02282E">
         <Label Padding="10,40,10,30"
-               Text="Your favourites"
+               Text="InspireMe"
                TextColor="White"
-               FontSize="30"
+               FontSize="40"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                VerticalOptions="Start">
@@ -20,20 +20,66 @@
                 </Shadow>
             </Label.Shadow>
         </Label>
-<CollectionView  Margin="10"  ItemsSource="{Binding Favourites}"
-                EmptyView="No favourites added yet!">
-    <CollectionView.ItemTemplate>
-        <DataTemplate>
-            <Frame Margin="10"
-                   Padding="10"
-                   BackgroundColor="#005C6A">
-                <StackLayout>
-                    <Label Text="{Binding Text}" TextColor="White" />
-                    <Label Text="{Binding Author}" TextColor="#E5E86C" />
+        <CollectionView  Margin="10"
+                         ItemsSource="{Binding Favourites}"
+                         VerticalOptions="FillAndExpand">
+            <!-- This is to add spacing between frames-->
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="15"/>
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.EmptyView>
+                <StackLayout
+                    Padding="0,60,0,0"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="Currently No Quote Added"
+                        FontAttributes="Bold"
+                        FontSize="25"
+                        TextColor="White"/>
+                    <Label
+                        Padding="0,20,0,20"
+                        HorizontalOptions="Center"
+                        Text="Explore more Quotes to get inspired!"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        TextColor="White"/>
+                    <Button
+                        BackgroundColor="#E5E86C"
+                        Text="Home Page"
+                        TextColor="Black"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+
                 </StackLayout>
-            </Frame>
-        </DataTemplate>
-    </CollectionView.ItemTemplate>
-</CollectionView>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate >
+                <DataTemplate  >
+                    <Frame Margin="10"
+                           Padding="10"
+                           BackgroundColor="#005C6A">
+                        <StackLayout>
+                            <Label Text="{Binding Text}"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding Author}"
+                                   FontAttributes="Italic"
+                                   TextColor="White"
+                                   />
+                            <Button
+                                Text="Remove"
+                                TextColor="White"
+                                BackgroundColor="#FF5D0505"
+                                HorizontalOptions="End"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.RemoveFavouriteCommand}"
+                                CommandParameter="{Binding}"
+                                />
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </StackLayout>
 </ContentPage>

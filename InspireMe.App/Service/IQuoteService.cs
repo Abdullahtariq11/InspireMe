@@ -11,5 +11,8 @@ public interface IQuoteService
     public QuoteModel GetRandomQuote();
     public void AddToFavourite(QuoteModel quote);
     public List<QuoteModel> GetAllQuotes();
+    public void RemoveFavourite(QuoteModel quote);
+
+    event Action OnFavouritesChanged; //
  
 }

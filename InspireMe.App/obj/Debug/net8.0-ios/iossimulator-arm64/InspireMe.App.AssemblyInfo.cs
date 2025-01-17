@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InspireMe.App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+b7e14e78e8ed8e74d6b463bd1654cc14cbae9bf7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+b50c059705ebc8909b73f414636adbe8c53ce6b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("InspireMe.App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("InspireMe.App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
