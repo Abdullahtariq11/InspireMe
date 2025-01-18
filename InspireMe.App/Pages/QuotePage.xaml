@@ -20,6 +20,17 @@
                 </Shadow>
             </Label.Shadow>
         </Label>
+
+        <!-- New Label for showing the message -->
+        <!-- Bind to the Message property -->
+        <Label Text="{Binding Message}"
+               TextColor="Red"
+               IsVisible="{Binding IsMessageVisible}"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"/>
+       
+
+
         <Grid BackgroundColor="Transparent">
             <Frame CornerRadius="15"
                    HasShadow="True"

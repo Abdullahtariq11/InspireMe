@@ -4,81 +4,154 @@ using CommunityToolkit.Mvvm.Input;
 using InspireMe.App.Models;
 using InspireMe.App.Service;
 
-namespace InspireMe.App.ViewModels;
-
-public partial class QuotePageViewModel : ObservableObject
+namespace InspireMe.App.ViewModels
 {
-    private readonly IBackgroundService _backgroundService;
-    private readonly IQuoteService _quoteService;
-
-
-    public QuotePageViewModel(IQuoteService quoteService, IBackgroundService backgroundService)
+    // The view model for the QuotePage, managing state and business logic.
+    public partial class QuotePageViewModel : ObservableObject
     {
-        _quoteService = quoteService;
-        _backgroundService = backgroundService;
+        // Dependencies for managing quotes and background images
+        private readonly IBackgroundService _backgroundService;
+        private readonly IQuoteService _quoteService;
 
-        // Select a random image on initialization
-        SelectRandomImage();
-    }
-
-    [ObservableProperty]
-    private string selectedImage;
-
-    [ObservableProperty]
-    private string quoteText;
-
-    [ObservableProperty]
-    private string quoteAuthor;
-
-    [ObservableProperty]
-    private bool favourite;
-    [ObservableProperty]
-    private bool isFavourite;
-    [ObservableProperty]
-    private string favouriteButtonText;
-        [ObservableProperty]
-    private string favouriteButtonColor;
-
-
-    [RelayCommand]
-    private void SetAsFavorite()
-    {
-        var quote = _quoteService.GetAllQuotes()
-            .FirstOrDefault(q => q.Text == QuoteText && q.Author == QuoteAuthor);
-
-        if (quote != null)
+        // Constructor
+        public QuotePageViewModel(IQuoteService quoteService, IBackgroundService backgroundService)
         {
-            _quoteService.AddToFavourite(quote);
-            Favourite = quote.Favourite; // Update ViewModel property
-            isFavourite=Favourite;
+            _quoteService = quoteService;
+            _backgroundService = backgroundService;
+
+            // Subscribe to changes in the favorites list
+            _quoteService.OnFavouritesChanged += HandleFavouritesChanged;
+
+            _quoteService.OnMaxFavouritesReached += HandleMaxFavouritesReached;
+
+            // Select a random background image on initialization
+            SelectRandomImage();
+        }
+
+        // Destructor to unsubscribe from events to avoid memory leaks
+        ~QuotePageViewModel()
+        {
+            _quoteService.OnFavouritesChanged -= HandleFavouritesChanged;
+        }
+
+        // The currently selected background image
+        [ObservableProperty]
+        private string selectedImage;
+
+        [ObservableProperty]
+        private string message; //Message to display to UI
+
+        [ObservableProperty]
+        private bool isMessageVisible;
+
+        // The text of the displayed quote
+        [ObservableProperty]
+        private string quoteText;
+
+        // The author of the displayed quote
+        [ObservableProperty]
+        private string quoteAuthor;
+
+        // Tracks whether the current quote is marked as a favorite
+        [ObservableProperty]
+        private bool favourite;
+
+        // Tracks whether the current quote is a favorite and updates the UI
+        [ObservableProperty]
+        private bool isFavourite;
+
+        // The text displayed on the favorite button
+        [ObservableProperty]
+        private string favouriteButtonText;
+
+        // The background color of the favorite button
+        [ObservableProperty]
+        private string favouriteButtonColor;
+
+        // Command to toggle the favorite status of the current quote
+        [RelayCommand]
+        private void SetAsFavorite()
+        {
+            // Find the current quote in the list of all quotes
+            var quote = _quoteService.GetAllQuotes()
+                .FirstOrDefault(q => q.Text == QuoteText && q.Author == QuoteAuthor);
+
+            if (quote != null)
+            {
+                // Add or remove the quote from favorites
+                _quoteService.AddToFavourite(quote);
+
+                // Update the IsFavourite property to trigger UI updates
+                IsFavourite = quote.Favourite;
+                UpdateFavouriteButtonText();
+                UpdateFavouriteButtonColor();
+            }
+        }
+
+        // Updates the favorite button text based on the IsFavourite state
+        private void UpdateFavouriteButtonText()
+        {
+            FavouriteButtonText = IsFavourite ? "Remove From Favouite" : "Set As Favourite";
+        }
+
+        // Updates the favorite button color based on the IsFavourite state
+        private void UpdateFavouriteButtonColor()
+        {
+            FavouriteButtonColor = IsFavourite ? "#005C6A" : "#E5E86C";
+        }
+
+        // Selects a random background image
+        private void SelectRandomImage()
+        {
+            SelectedImage = _backgroundService.GetRandomImage();
+        }
+
+        // Initializes the view model with the given quote and author
+        public void InitializeQuote(string text, string author)
+        {
+            QuoteText = text;
+            QuoteAuthor = author;
+
+            // Check if the quote is a favorite and update the UI
+            var quote = _quoteService.GetAllQuotes()
+                .FirstOrDefault(q => q.Text == text && q.Author == author);
+
+            IsFavourite = quote?.Favourite ?? false;
             UpdateFavouriteButtonText();
             UpdateFavouriteButtonColor();
         }
-    }
-    private void UpdateFavouriteButtonText()
-    {
-        FavouriteButtonText = IsFavourite ? "Remove From Favouite" : "Set As Favourite";
-    }
-        private void UpdateFavouriteButtonColor()
-    {
-        FavouriteButtonColor = IsFavourite ? "#005C6A" : "#E5E86C";
-    }
 
-    private void SelectRandomImage()
-    {
-        SelectedImage = _backgroundService.GetRandomImage();
-    }
-    // Initialize IsFavourite and button text when navigating to the page
-    public void InitializeQuote(string text, string author)
-    {
-        QuoteText = text;
-        QuoteAuthor = author;
+        // Handles updates to the favorites list and refreshes the current quote's state
+        private void HandleFavouritesChanged()
+        {
+            // Find the current quote in the updated favorites list
+            var quote = _quoteService.GetAllQuotes()
+                .FirstOrDefault(q => q.Text == QuoteText && q.Author == QuoteAuthor);
 
-        var quote = _quoteService.GetAllQuotes()
-            .FirstOrDefault(q => q.Text == text && q.Author == author);
+            if (quote != null)
+            {
+                // Update IsFavourite and refresh the UI
+                IsFavourite = quote.Favourite;
+                UpdateFavouriteButtonText();
+                UpdateFavouriteButtonColor();
+            }
+            else
+            {
+                // If the quote was removed from favorites, ensure IsFavourite is false
+                IsFavourite = false;
+                UpdateFavouriteButtonText();
+                UpdateFavouriteButtonColor();
+            }
+        }
+        // Handle the event when the max limit is reached
+        private async void HandleMaxFavouritesReached()
+        {
+            Message = "You can only mark up to 4 quotes as favorites.";
+            IsMessageVisible = true; // Make the message visible
 
-        IsFavourite = quote?.Favourite ?? false;
-        UpdateFavouriteButtonText();
-        UpdateFavouriteButtonColor();
+            await Task.Delay(3000); // Wait for 3 seconds
+            Message = string.Empty;
+            IsMessageVisible = false; // Hide the message
+        }
     }
 }
