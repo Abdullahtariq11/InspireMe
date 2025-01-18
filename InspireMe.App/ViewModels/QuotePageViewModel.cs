@@ -22,6 +22,8 @@ namespace InspireMe.App.ViewModels
             // Subscribe to changes in the favorites list
             _quoteService.OnFavouritesChanged += HandleFavouritesChanged;
 
+            _quoteService.OnMaxFavouritesReached += HandleMaxFavouritesReached;
+
             // Select a random background image on initialization
             SelectRandomImage();
         }
@@ -35,6 +37,12 @@ namespace InspireMe.App.ViewModels
         // The currently selected background image
         [ObservableProperty]
         private string selectedImage;
+
+        [ObservableProperty]
+        private string message; //Message to display to UI
+
+        [ObservableProperty]
+        private bool isMessageVisible;
 
         // The text of the displayed quote
         [ObservableProperty]
@@ -134,6 +142,16 @@ namespace InspireMe.App.ViewModels
                 UpdateFavouriteButtonText();
                 UpdateFavouriteButtonColor();
             }
+        }
+        // Handle the event when the max limit is reached
+        private async void HandleMaxFavouritesReached()
+        {
+            Message = "You can only mark up to 4 quotes as favorites.";
+            IsMessageVisible = true; // Make the message visible
+
+            await Task.Delay(3000); // Wait for 3 seconds
+            Message = string.Empty;
+            IsMessageVisible = false; // Hide the message
         }
     }
 }

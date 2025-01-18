@@ -14,5 +14,6 @@ public interface IQuoteService
     public void RemoveFavourite(QuoteModel quote);
 
     event Action OnFavouritesChanged; //
- 
+    event Action OnMaxFavouritesReached;
+
 }

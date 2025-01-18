@@ -9,10 +9,11 @@ namespace InspireMe.App.Pages
     {
         // Constructor for FavouritePage
         // Accepts a FavouritePageViewModel instance via dependency injection
-        public FavouritePage(FavouritePageViewModel viewModel)
+        public FavouritePage(IQuoteService quoteService)
         {
             InitializeComponent(); // Initializes components defined in the XAML file
-            BindingContext = viewModel; // Sets the data-binding context to the provided ViewModel
+            // Pass the current navigation context
+            BindingContext = new FavouritePageViewModel(quoteService, this.Navigation);
         }
     }
 }

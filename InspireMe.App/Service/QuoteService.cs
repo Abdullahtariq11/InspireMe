@@ -29,6 +29,11 @@ namespace InspireMe.App.Service
         // Event triggered when the Favourites collection changes.
         public event Action OnFavouritesChanged;
 
+        // Event triggered when the maximum limit of favorite quotes is reached
+        public event Action OnMaxFavouritesReached;
+
+
+
         // Retrieves a random quote from the list of all quotes.
         public QuoteModel GetRandomQuote()
         {
@@ -40,6 +45,12 @@ namespace InspireMe.App.Service
         public void AddToFavourite(QuoteModel quote)
         {
             if (quote == null) throw new Exception("Quote is Null");
+            //Check if max limit has reached
+            if(Favourites.Count == 4 && !quote.Favourite)
+            {
+                OnMaxFavouritesReached?.Invoke();
+                return;
+            }
 
             // Toggle the favorite status
             quote.Favourite = !quote.Favourite;

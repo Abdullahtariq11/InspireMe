@@ -51,14 +51,15 @@
                         Text="Home Page"
                         TextColor="Black"
                         HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
+                        VerticalOptions="Center"
+                        Command="{Binding NavigateToHomePageCommand}" />
 
                 </StackLayout>
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate >
                 <DataTemplate  >
-                    <Frame Margin="10"
-                           Padding="10"
+                    <Frame Margin="5"
+                           Padding="5"
                            BackgroundColor="#005C6A">
                         <StackLayout>
                             <Label Text="{Binding Text}"
@@ -66,7 +67,7 @@
                                    FontAttributes="Bold"/>
                             <Label Text="{Binding Author}"
                                    FontAttributes="Italic"
-                                   TextColor="White"
+                                   TextColor="#FFB7AAAA"
                                    />
                             <Button
                                 Text="Remove"
